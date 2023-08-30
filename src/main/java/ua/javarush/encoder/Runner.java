@@ -24,6 +24,5 @@ public class Runner {
             ClientConsole clientConsole = new ClientConsole();
             clientConsole.addParameters();
         }
-
     }
 }
