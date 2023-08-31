@@ -9,11 +9,11 @@ public class ClientConsole {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the operation you want to perform.");
         System.out.println("Available operations: ENCRYPT, DECRYPT, BRUTE_FORCE");
-        String clientCommand = scanner.next();
+        String clientCommand = scanner.nextLine();
 
         if(clientCommand.equals("BRUTE_FORCE")){
             System.out.println("Not working yet, choose another operation");
-            clientCommand = scanner.next();
+            clientCommand = scanner.nextLine();
         }
 
         System.out.println("Enter the file path");

@@ -26,21 +26,6 @@ public class FileService {
             System.out.println("Failed to create file, error:  " + e);
         }
 
-        switch (COMMAND){
-            case ENCRYPT:
-                fileReadEncryptWrite(pathResultFile, key);
-                break;
-
-            case DECRYPT:
-                fileReadDecryptWrite(pathResultFile, key);
-                break;
-        }
-
-
-    }
-
-    private void fileReadEncryptWrite(String pathResultFile, int key){
-
         CaesarCipher caesarCipher = new CaesarCipher(key);
 
         try (FileReader fileReader = new FileReader(PATH_SOURS);
@@ -50,33 +35,20 @@ public class FileService {
             while (buffer.ready()) {
 
                 char symbol = (char) buffer.read();
-                writer.write(caesarCipher.encrypt(symbol));
 
+                switch (COMMAND){
+                    case ENCRYPT:
+                        writer.write(caesarCipher.encrypt(symbol));
+                        break;
+
+                    case DECRYPT:
+                        writer.write(caesarCipher.decrypt(symbol));
+                        break;
+                }
             }
 
         } catch (IOException e) {
             System.out.println(e);
         }
-    }
-
-    private void fileReadDecryptWrite(String pathResultFile, int key){
-
-        CaesarCipher caesarCipher = new CaesarCipher(key);
-
-        try (FileReader fileReader = new FileReader(PATH_SOURS);
-             BufferedReader buffer = new BufferedReader(fileReader);
-             FileWriter writer = new FileWriter(pathResultFile)) {
-
-            while (buffer.ready()) {
-
-                char symbol = (char) buffer.read();
-                writer.write(caesarCipher.decrypt(symbol));
-
-            }
-
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
     }
 }

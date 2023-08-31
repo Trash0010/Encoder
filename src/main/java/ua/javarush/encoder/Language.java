@@ -26,6 +26,4 @@ public class Language {
         ENGLISH_LOWERCASE = symbolsLower;
 
     }
-
-
 }
