@@ -21,7 +21,7 @@ public class Language {
         char[] symbolsLower = new char[26];
 
         for (int i = 0; i < 26; i++) {
-            symbolsUpper[i] = (char) (i + 97);
+            symbolsLower[i] = (char) (i + 97);
         }
         ENGLISH_LOWERCASE = symbolsLower;
 
